@@ -5,7 +5,7 @@
  * @Last Modified time: 2020-12-22 10:25:41
  */
 /*
-京豆变动通知脚本：https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_change.js
+京豆变动通知脚本：https://github.com/zjcxmmail/JDP/blob/main/jd_bean_change.js
 统计昨日京豆的变化情况，包括收入，支出，以及显示当前京豆数量,目前小问题:下单使用京豆后,退款重新购买会出现异常
 网页查看地址 : https://bean.m.jd.com/bean/signIndex.actionbeanDetail/index.action?resourceValue=bean
 支持京东双账号
@@ -13,12 +13,12 @@
 quantumultx
 [task_local]
 #京豆变动通知
-2 9 * * * https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_change.js, tag=京豆变动通知, enabled=true
+2 9 * * * https://github.com/zjcxmmail/JDP/blob/main/jd_bean_change.js, tag=京豆变动通知, enabled=true
 Loon
 [Script]
-cron "2 9 * * *" script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_change.js, tag=京豆变动通知
+cron "2 9 * * *" script-path=https://github.com/zjcxmmail/JDP/blob/main/jd_bean_change.js, tag=京豆变动通知
 Surge
-京豆变动通知 = type=cron,cronexp=2 9 * * *,wake-system=1,timeout=440,script-path=https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_bean_change.js
+京豆变动通知 = type=cron,cronexp=2 9 * * *,wake-system=1,timeout=440,script-path=https://github.com/zjcxmmail/JDP/blob/main/jd_bean_change.js
  */
 const $ = new Env('京豆变动通知');
 const notify = $.isNode() ? require('./sendNotify') : '';
@@ -74,7 +74,7 @@ if ($.isNode()) {
   }
 })()
     .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+      $.log('', `? ${$.name}, 失败! 原因: ${e}!`, '')
     })
     .finally(() => {
       $.done();
@@ -82,9 +82,9 @@ if ($.isNode()) {
 async function showMsg() {
   if ($.errorMsg) return
   if ($.isNode()) {
-    await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `账号${$.index}：${$.nickName || $.UserName}\n昨日收入：${$.incomeBean}京豆 🐶\n昨日支出：${$.expenseBean}京豆 🐶\n当前京豆：${$.beanCount}京豆 🐶${$.message}`, { url: `https://bean.m.jd.com/bean/signIndex.actionbeanDetail/index.action?resourceValue=bean` })
+    await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName}`, `账号${$.index}：${$.nickName || $.UserName}\n昨日收入：${$.incomeBean}京豆 ??\n昨日支出：${$.expenseBean}京豆 ??\n当前京豆：${$.beanCount}京豆 ??${$.message}`, { url: `https://bean.m.jd.com/bean/signIndex.actionbeanDetail/index.action?resourceValue=bean` })
   }
-  $.msg($.name, '', `账号${$.index}：${$.nickName || $.UserName}\n昨日收入：${$.incomeBean}京豆 🐶\n昨日支出：${$.expenseBean}京豆 🐶\n当前京豆：${$.beanCount}京豆 🐶${$.message}`, {"open-url": "https://bean.m.jd.com/bean/signIndex.actionbeanDetail/index.action?resourceValue=bean"});
+  $.msg($.name, '', `账号${$.index}：${$.nickName || $.UserName}\n昨日收入：${$.incomeBean}京豆 ??\n昨日支出：${$.expenseBean}京豆 ??\n当前京豆：${$.beanCount}京豆 ??${$.message}`, {"open-url": "https://bean.m.jd.com/bean/signIndex.actionbeanDetail/index.action?resourceValue=bean"});
 }
 async function bean() {
   // console.log(`北京时间零点时间戳:${parseInt((Date.now() + 28800000) / 86400000) * 86400000 - 28800000}`);
@@ -129,8 +129,8 @@ async function bean() {
     }
   }
   await queryexpirejingdou();
-  // console.log(`昨日收入：${$.incomeBean}个京豆 🐶`);
-  // console.log(`昨日支出：${$.expenseBean}个京豆 🐶`)
+  // console.log(`昨日收入：${$.incomeBean}个京豆 ??`);
+  // console.log(`昨日支出：${$.expenseBean}个京豆 ??`)
 }
 function TotalBean() {
   return new Promise(async resolve => {
@@ -236,7 +236,7 @@ function queryexpirejingdou() {
             if (data.ret === 0) {
               const expirejingdou = data['expirejingdou'][0]['expireamount'];
               if (expirejingdou > 0) {
-                $.message += `\n今日将过期：${expirejingdou}京豆 🐶`;
+                $.message += `\n今日将过期：${expirejingdou}京豆 ??`;
               }
             }
           } else {
