@@ -1,0 +1,14 @@
+node C:\JD\Super_JD\jd_shop.js
+node C:\JD\Super_JD\jd_syj.js
+node C:\JD\Super_JD\jd_blueCoin.js
+node C:\JD\Super_JD\jd_kd.js
+node C:\JD\Super_JD\jd_live.js
+node C:\JD\Super_JD\jd_joy_reward.js
+node C:\JD\Super_JD\jd_joy.js
+node C:\JD\Super_JD\jd_joy_steal.js	
+node C:\JD\Super_JD\jd_rankingList.js
+node C:\JD\Super_JD\jd_small_home.js
+node C:\JD\Super_JD\jd_fruit.js
+node C:\JD\Super_JD\jd_crazy_joy.js
+node C:\JD\Super_JD\jd_unsubscribe.js	
+node C:\JD\Super_JD\jd_bean_change.js

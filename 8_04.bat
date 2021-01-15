@@ -1,0 +1,14 @@
+node C:\JD\Super_JD\jd_joy_reward.js
+node C:\JD\Super_JD\jd_joy.js
+node C:\JD\Super_JD\jd_joy_steal.js
+node C:\JD\Super_JD\jd_live.js
+node C:\JD\Super_JD\jd_car.js
+node C:\JD\Super_JD\jd_bean_home.js
+node C:\JD\Super_JD\jd_bean_sign.js
+node C:\JD\Super_JD\jd_club_lottery.js
+node C:\JD\Super_JD\jd_redPacket.js
+node C:\JD\Super_JD\jd_pigPet.js
+node C:\JD\Super_JD\jd_jdzz.js
+node C:\JD\Super_JD\jd_cash.js
+node C:\JD\Super_JD\jd_unsubscribe.js
+node C:\JD\Super_JD\jd_bean_change.js
